@@ -157,6 +157,8 @@ namespace CharacterEditor
                     Value(wizard);
                     break;
             }
+            Create.Visible = true;
+            Save.Visible = false;
         }
 
         private void Value(Unit unit)
