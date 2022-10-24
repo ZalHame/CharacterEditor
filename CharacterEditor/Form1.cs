@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,37 +16,74 @@ namespace CharacterEditor
         public Form1()
         {
             InitializeComponent();
+            ListChar.Items.Clear();
+            foreach (var item in MongoDB.FindAll())
+            {
+                ListChar.Items.Add(item.Name);
+            }
         }
 
         private void ListChar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MongoDB mongoDB = new MongoDB();
-            mongoDB.Find(ListChar.Text);
+            TextBoxNickname.Text = ListChar.Text;
+            EditChar(TextBoxNickname.Text);
+        }
+        private void EditChar(string name)
+        {
+            var one = MongoDB.Find(name);
+
+            ComboBoxClass.Text = one?.GetType().Name;
+            LabelStr.Text = one?.Str.ToString();
+            LabelDex.Text = one?.Dex.ToString();
+            LabelCons.Text = one?.Cons.ToString();
+            LabelInt.Text = one?.Int.ToString();
+            LabelHP.Text = one?.HP.ToString();
+            LabelMP.Text = one?.MP.ToString();
+            LabelAtt.Text = one?.Att.ToString();
+            LabelMAtt.Text = one?.MAtt.ToString();
+            LabelDef.Text = one?.Def.ToString();
+            LabelSkillPoint.Text = one?.SkillPoint.ToString();
         }
 
         private void Create_Click(object sender, EventArgs e)
         {
-            MongoDB mongoDB = new MongoDB();
-            switch (ComboBoxClass.Text)
+            if (MongoDB.Find(TextBoxNickname.Text) == null)
             {
-                case "Warrior":
-                    Warrior warrior = new Warrior();
-                    CreatChar(warrior);
-                    mongoDB.AddToDB(warrior);
-                    mongoDB.Find(TextBoxNickname.Text);
-                    break;
-                case "Rogue":
-                    Rogue rogue = new Rogue();
-                    CreatChar(rogue);
-                    mongoDB.AddToDB(rogue);
-                    mongoDB.Find(TextBoxNickname.Text);
-                    break;
-                case "Wizard":
-                    Wizard wizard = new Wizard();
-                    CreatChar(wizard);
-                    mongoDB.AddToDB(wizard);
-                    mongoDB.Find(TextBoxNickname.Text);
-                    break;
+                if (TextBoxNickname.Text != "")
+                {
+                    switch (ComboBoxClass.Text)
+                    {
+                        case "Warrior":
+                            Warrior warrior = new Warrior();
+                            CreatChar(warrior);
+                            MongoDB.AddToDB(warrior);
+                            MessageBox.Show(MongoDB.Find(TextBoxNickname.Text).ToString());
+                            break;
+                        case "Rogue":
+                            Rogue rogue = new Rogue();
+                            CreatChar(rogue);
+                            MongoDB.AddToDB(rogue);
+                            MessageBox.Show(MongoDB.Find(TextBoxNickname.Text).ToString());
+                            break;
+                        case "Wizard":
+                            Wizard wizard = new Wizard();
+                            CreatChar(wizard);
+                            MongoDB.AddToDB(wizard);
+                            MessageBox.Show(MongoDB.Find(TextBoxNickname.Text).ToString());
+                            break;
+                    }
+                    TextBoxNickname.Text = "";
+                    ComboBoxClass.SelectedIndex = 1;
+                    ComboBoxClass.SelectedIndex = 0;
+                }
+                else
+                {
+                    MessageBox.Show("Ведите имя персонажа");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Имя персонажа занято");
             }
         }
 
@@ -513,7 +551,5 @@ namespace CharacterEditor
                     break;
             }
         }
-
-        
     }
 }

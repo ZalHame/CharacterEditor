@@ -11,7 +11,7 @@ namespace CharacterEditor
     [BsonIgnoreExtraElements]
     [BsonKnownTypes(typeof(Wizard), typeof(Rogue), typeof(Warrior))]
 
-    internal class Unit
+    public class Unit
     {
         [BsonId]
         [BsonIgnoreIfDefault]
@@ -35,14 +35,23 @@ namespace CharacterEditor
         public double Att { get; set; }
         public double MAtt { get; set; }
         public double Def { get; set; }
-        
 
-        public Unit(int str,int dex, int cons, int int_)
+
+        public Unit(int str, int dex, int cons, int int_)
         {
             this.Str = str;
             this.Dex = dex;
             this.Cons = cons;
             this.Int = int_;
+        }
+        public override string ToString()
+        {
+            return $"Nickname - {this.Name} \n" +
+                   $"HP - {this.HP} \n" +
+                   $"MP - {this.MP} \n" +
+                   $"Att - {this.Att} \n" +
+                   $"MAtt - {this.MAtt} \n" +
+                   $"Def - {this.Def}";
         }
     }
 }
