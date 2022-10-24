@@ -48,7 +48,7 @@ namespace CharacterEditor
         }
 
 
-        /*public void ReplaceByName(string name, Unit unit)
+        public static void ReplaceByName(string name, Unit unit)
         {
             var client = new MongoClient();
             var database = client.GetDatabase("CharList");
@@ -56,7 +56,7 @@ namespace CharacterEditor
             collection.ReplaceOne(x => x.Name == name, unit);
         }
 
-        public void TestMethod()
+        /*public void TestMethod()
         {
             var client = new MongoClient();
             var database = client.GetDatabase("CharList");

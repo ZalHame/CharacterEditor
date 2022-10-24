@@ -64,6 +64,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.ComboBoxClass = new System.Windows.Forms.ComboBox();
             this.TextBoxNickname = new System.Windows.Forms.TextBox();
+            this.Save = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +72,7 @@
             // 
             this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel1.Controls.Add(this.Save);
             this.panel1.Controls.Add(this.ListChar);
             this.panel1.Controls.Add(this.LabelDef);
             this.panel1.Controls.Add(this.LabelMAtt);
@@ -508,6 +510,19 @@
             this.TextBoxNickname.Size = new System.Drawing.Size(146, 20);
             this.TextBoxNickname.TabIndex = 3;
             // 
+            // Save
+            // 
+            this.Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Save.Location = new System.Drawing.Point(189, 404);
+            this.Save.Margin = new System.Windows.Forms.Padding(2);
+            this.Save.Name = "Save";
+            this.Save.Size = new System.Drawing.Size(87, 37);
+            this.Save.TabIndex = 50;
+            this.Save.Text = "Save";
+            this.Save.UseVisualStyleBackColor = true;
+            this.Save.Visible = false;
+            this.Save.Click += new System.EventHandler(this.Save_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -562,5 +577,6 @@
         private System.Windows.Forms.Label labelnameMP;
         private System.Windows.Forms.Label labelnameHP;
         private System.Windows.Forms.ListBox ListChar;
+        private System.Windows.Forms.Button Save;
     }
 }

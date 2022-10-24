@@ -27,6 +27,8 @@ namespace CharacterEditor
         {
             TextBoxNickname.Text = ListChar.Text;
             EditChar(TextBoxNickname.Text);
+            Create.Visible = false;
+            Save.Visible = true;
         }
         private void EditChar(string name)
         {
@@ -86,7 +88,6 @@ namespace CharacterEditor
                 MessageBox.Show("Имя персонажа занято");
             }
         }
-
         private void CreatChar(Unit unit)
         {
             unit.Str = int.Parse(LabelStr.Text);
@@ -101,6 +102,42 @@ namespace CharacterEditor
             unit.SkillPoint = int.Parse(LabelSkillPoint.Text);
             unit.Name = TextBoxNickname.Text;
             ListChar.Items.Add(unit.Name);
+        }
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            switch (ComboBoxClass.Text)
+            {
+                case "Warrior":
+                    Warrior warrior = new Warrior();
+                    SaveChar(warrior);
+                    MongoDB.ReplaceByName(TextBoxNickname.Text, warrior);
+                    break;
+                case "Rogue":
+                    Rogue rogue = new Rogue();
+                    SaveChar(rogue);
+                    MongoDB.ReplaceByName(TextBoxNickname.Text, rogue);
+                    break;
+                case "Wizard":
+                    Wizard wizard = new Wizard();
+                    SaveChar(wizard);
+                    MongoDB.ReplaceByName(TextBoxNickname.Text, wizard);
+                    break;
+            }
+        }
+        private void SaveChar(Unit unit)
+        {
+            unit.Str = int.Parse(LabelStr.Text);
+            unit.Dex = int.Parse(LabelDex.Text);
+            unit.Cons = int.Parse(LabelCons.Text);
+            unit.Int = int.Parse(LabelInt.Text);
+            unit.HP = double.Parse(LabelHP.Text);
+            unit.MP = double.Parse(LabelMP.Text);
+            unit.Att = double.Parse(LabelAtt.Text);
+            unit.MAtt = double.Parse(LabelMAtt.Text);
+            unit.Def = double.Parse(LabelDef.Text);
+            unit.SkillPoint = int.Parse(LabelSkillPoint.Text);
+            unit.Name = TextBoxNickname.Text;
         }
 
         private void ComboBoxClass_SelectedIndexChanged(object sender, EventArgs e)
