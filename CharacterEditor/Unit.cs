@@ -30,20 +30,29 @@ namespace CharacterEditor
         static public int MaxInt;
         public string Name { get; set; }
         public int SkillPoint { get; set; }
+        public int Level { get; set; }
+        public int ExpMax { get; set; }
+        public int ExpCurrent { get; set; }
         public double HP { get; set; }
         public double MP { get; set; }
         public double Att { get; set; }
         public double MAtt { get; set; }
         public double Def { get; set; }
-
-
         public Unit(int str, int dex, int cons, int int_)
         {
             this.Str = str;
             this.Dex = dex;
             this.Cons = cons;
             this.Int = int_;
+            this.Level = 1;
+            int count = 0;
+            for (int i = Level; i > 0; i--)
+            {
+                count += i;
+            }
+            this.ExpMax = count * 1000;
         }
+
         public override string ToString()
         {
             return $"Nickname - {this.Name} \n" +

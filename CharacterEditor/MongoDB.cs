@@ -47,7 +47,6 @@ namespace CharacterEditor
             return one;
         }
 
-
         public static void ReplaceByName(string name, Unit unit)
         {
             var client = new MongoClient();
