@@ -200,7 +200,7 @@ namespace CharacterEditor
             {
                 int current = progressExp.Value;
                 current += 500;
-                if (current > progressExp.Maximum)
+                while (current > progressExp.Maximum)
                 {
                     LabelLvl.Text = (int.Parse(LabelLvl.Text) + 1).ToString();
                     progressExp.Value = 0;
@@ -223,7 +223,7 @@ namespace CharacterEditor
             {
                 int current = progressExp.Value;
                 current += 1000;
-                if (current > progressExp.Maximum)
+                while (current > progressExp.Maximum)
                 {
                     LabelLvl.Text = (int.Parse(LabelLvl.Text) + 1).ToString();
                     progressExp.Value = 0;
@@ -246,7 +246,7 @@ namespace CharacterEditor
             {
                 int current = progressExp.Value;
                 current += 5000;
-                if (current > progressExp.Maximum)
+                while (current > progressExp.Maximum)
                 {
                     LabelLvl.Text = (int.Parse(LabelLvl.Text) + 1).ToString();
                     progressExp.Value = 0;
