@@ -52,6 +52,7 @@ namespace CharacterEditor
             LabelLvl.Text = one?.Level.ToString();
             LabelExp.Text = $"{one?.ExpCurrent} / {progressExp.Maximum}";
             progressExp.Value = 0;
+            LogicLvlExp();
         }
 
         private void Create_Click(object sender, EventArgs e)
@@ -188,6 +189,7 @@ namespace CharacterEditor
             LabelDef.Text = unit.Def.ToString();
             LabelSkillPoint.Text = unit.SkillPoint.ToString();
             LabelLvl.Text = unit.Level.ToString();
+            LogicLvlExp();
             LabelExp.Text = $"{unit.ExpCurrent} / {progressExp.Maximum}";
         }
 
@@ -206,7 +208,7 @@ namespace CharacterEditor
 
         private void LogicButtonExp(int currentexp)
         {
-            progressExp.Maximum = 1000 + int.Parse(LabelLvl.Text) * 1000;
+            LogicLvlExp();
             int current = progressExp.Value;
             current = current + currentexp;
             if (progressExp.Value == progressExp.Maximum)
@@ -214,6 +216,7 @@ namespace CharacterEditor
                 LabelLvl.Text = (int.Parse(LabelLvl.Text) + 1).ToString();
                 progressExp.Value = 0;
                 LabelSkillPoint.Text = (int.Parse(LabelSkillPoint.Text) + 5).ToString();
+                LogicLvlExp();
             }
             else
             {
@@ -223,10 +226,20 @@ namespace CharacterEditor
                     progressExp.Value = 0;
                     current -= progressExp.Maximum;
                     LabelSkillPoint.Text = (int.Parse(LabelSkillPoint.Text) + 5).ToString();
+                    LogicLvlExp();
                 }
                 progressExp.Value = current;
             }
             LabelExp.Text = $"{progressExp.Value} / {progressExp.Maximum}";
+        }
+        private void LogicLvlExp()
+        {
+            int count = 0;
+            for (int i = int.Parse(LabelLvl.Text); i > 0; i--)
+            {
+                count += i;
+            }
+            progressExp.Maximum = count * 1000;
         }
         //---------------------------------------------------------------------------------------------------
         private void ButtonStrMinus_Click(object sender, EventArgs e)

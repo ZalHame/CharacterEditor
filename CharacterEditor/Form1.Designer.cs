@@ -134,7 +134,8 @@
             // progressExp
             // 
             this.progressExp.Location = new System.Drawing.Point(343, 338);
-            this.progressExp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressExp.Margin = new System.Windows.Forms.Padding(4);
+            this.progressExp.MarqueeAnimationSpeed = 10;
             this.progressExp.Maximum = 1000;
             this.progressExp.Name = "progressExp";
             this.progressExp.Size = new System.Drawing.Size(92, 25);
@@ -241,7 +242,7 @@
             this.ListChar.FormattingEnabled = true;
             this.ListChar.ItemHeight = 16;
             this.ListChar.Location = new System.Drawing.Point(45, 378);
-            this.ListChar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ListChar.Margin = new System.Windows.Forms.Padding(4);
             this.ListChar.Name = "ListChar";
             this.ListChar.Size = new System.Drawing.Size(193, 164);
             this.ListChar.TabIndex = 49;
