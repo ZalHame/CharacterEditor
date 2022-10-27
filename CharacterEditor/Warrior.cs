@@ -9,15 +9,6 @@ namespace CharacterEditor
 {
     internal class Warrior : Unit
     {
-        /*static public int MinStr = 30;
-        static public int MaxStr = 250;
-        static public int MinDex = 15;
-        static public int MaxDex = 70;
-        static public int MinCons = 20;
-        static public int MaxCons = 100;
-        static public int MinInt = 10;
-        static public int MaxInt = 50;*/
-        
         public Warrior() : base ( 30, 15, 20, 10)
         {
             MinStr = 30;

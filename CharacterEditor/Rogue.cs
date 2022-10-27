@@ -8,14 +8,6 @@ namespace CharacterEditor
 {
     internal class Rogue : Unit
     {
-        /*static public int MinStr = 15;
-        static public int MaxStr = 55;
-        static public int MinDex = 30;
-        static public int MaxDex = 250;
-        static public int MinCons = 20;
-        static public int MaxCons = 80;
-        static public int MinInt = 15;
-        static public int MaxInt = 70;*/
         public Rogue() : base(15, 30, 20, 15)
         {
             MinStr = 15;

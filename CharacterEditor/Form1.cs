@@ -29,6 +29,9 @@ namespace CharacterEditor
             EditChar(TextBoxNickname.Text);
             Create.Visible = false;
             Save.Visible = true;
+            ButtonExpPlus500.Visible = true;
+            ButtonExpPlus1000.Visible = true;
+            ButtonExpPlus5000.Visible = true;
         }
         private void EditChar(string name)
         {
@@ -45,6 +48,8 @@ namespace CharacterEditor
             LabelMAtt.Text = one?.MAtt.ToString();
             LabelDef.Text = one?.Def.ToString();
             LabelSkillPoint.Text = one?.SkillPoint.ToString();
+            LabelLvl.Text = one?.Level.ToString();
+            LabelExp.Text = $"{one?.ExpCurrent} / {progressExp.Maximum}";
         }
 
         private void Create_Click(object sender, EventArgs e)
@@ -101,6 +106,8 @@ namespace CharacterEditor
             unit.Def = double.Parse(LabelDef.Text);
             unit.SkillPoint = int.Parse(LabelSkillPoint.Text);
             unit.Name = TextBoxNickname.Text;
+            unit.Level = int.Parse(LabelLvl.Text);
+            unit.ExpCurrent = 0;
             ListChar.Items.Add(unit.Name);
         }
 
@@ -138,6 +145,8 @@ namespace CharacterEditor
             unit.Def = double.Parse(LabelDef.Text);
             unit.SkillPoint = int.Parse(LabelSkillPoint.Text);
             unit.Name = TextBoxNickname.Text;
+            unit.Level = int.Parse(LabelLvl.Text);
+            unit.ExpCurrent = progressExp.Value;
         }
 
         private void ComboBoxClass_SelectedIndexChanged(object sender, EventArgs e)
@@ -159,8 +168,10 @@ namespace CharacterEditor
             }
             Create.Visible = true;
             Save.Visible = false;
+            ButtonExpPlus500.Visible = false;
+            ButtonExpPlus1000.Visible = false;
+            ButtonExpPlus5000.Visible = false;
         }
-
         private void Value(Unit unit)
         {
             LabelStr.Text = Unit.MinStr.ToString();
@@ -173,8 +184,79 @@ namespace CharacterEditor
             LabelMAtt.Text = unit.MAtt.ToString();
             LabelDef.Text = unit.Def.ToString();
             LabelSkillPoint.Text = unit.SkillPoint.ToString();
+            LabelLvl.Text = unit.Level.ToString();
+            LabelExp.Text = $"{unit.ExpCurrent} / {progressExp.Maximum}";
         }
-        //---------------------------------
+
+        private void ButtonExpPlus500_Click(object sender, EventArgs e)
+        {
+            progressExp.Maximum = 1000 + int.Parse(LabelLvl.Text) * 1000;
+            if (progressExp.Value == progressExp.Maximum)
+            {
+                LabelLvl.Text = (int.Parse(LabelLvl.Text) + 1).ToString();
+                progressExp.Value = 0;
+            }
+            else
+            {
+                int current = progressExp.Value;
+                current += 500;
+                if (current > progressExp.Maximum)
+                {
+                    LabelLvl.Text = (int.Parse(LabelLvl.Text) + 1).ToString();
+                    progressExp.Value = 0;
+                    current -= progressExp.Maximum;
+                }
+                progressExp.Value = current;
+            }
+            LabelExp.Text = $"{progressExp.Value} / {progressExp.Maximum}";
+        }
+
+        private void ButtonExpPlus1000_Click(object sender, EventArgs e)
+        {
+            progressExp.Maximum = 1000 + int.Parse(LabelLvl.Text) * 1000;
+            if (progressExp.Value == progressExp.Maximum)
+            {
+                LabelLvl.Text = (int.Parse(LabelLvl.Text) + 1).ToString();
+                progressExp.Value = 0;
+            }
+            else
+            {
+                int current = progressExp.Value;
+                current += 1000;
+                if (current > progressExp.Maximum)
+                {
+                    LabelLvl.Text = (int.Parse(LabelLvl.Text) + 1).ToString();
+                    progressExp.Value = 0;
+                    current -= progressExp.Maximum;
+                }
+                progressExp.Value = current;
+            }
+            LabelExp.Text = $"{progressExp.Value} / {progressExp.Maximum}";
+        }
+
+        private void ButtonExpPlus5000_Click(object sender, EventArgs e)
+        {
+            progressExp.Maximum = 1000 + int.Parse(LabelLvl.Text) * 1000;
+            if (progressExp.Value == progressExp.Maximum)
+            {
+                LabelLvl.Text = (int.Parse(LabelLvl.Text) + 1).ToString();
+                progressExp.Value = 0;
+            }
+            else
+            {
+                int current = progressExp.Value;
+                current += 5000;
+                if (current > progressExp.Maximum)
+                {
+                    LabelLvl.Text = (int.Parse(LabelLvl.Text) + 1).ToString();
+                    progressExp.Value = 0;
+                    current -= progressExp.Maximum;
+                }
+                progressExp.Value = current;
+            }
+            LabelExp.Text = $"{progressExp.Value} / {progressExp.Maximum}";
+        }
+        //---------------------------------------------------------------------------------------------------
         private void ButtonStrMinus_Click(object sender, EventArgs e)
         {
             switch (ComboBoxClass.Text)

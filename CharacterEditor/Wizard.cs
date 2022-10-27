@@ -8,14 +8,6 @@ namespace CharacterEditor
 {
     internal class Wizard : Unit
     {
-        /*static public int MinStr = 10;
-        static public int MaxStr = 45;
-        static public int MinDex = 20;
-        static public int MaxDex = 70;
-        static public int MinCons = 15;
-        static public int MaxCons = 60;
-        static public int MinInt = 35;
-        static public int MaxInt = 250;*/
         public Wizard() : base(10, 20, 15, 35)
         {
             MinStr = 10;
