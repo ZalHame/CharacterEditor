@@ -37,14 +37,15 @@ namespace CharacterEditor
         public double Att { get; set; }
         public double MAtt { get; set; }
         public double Def { get; set; }
+        List<Skills> skills = new List<Skills>();
         public Unit(int str, int dex, int cons, int int_)
         {
-            this.Str = str;
-            this.Dex = dex;
-            this.Cons = cons;
-            this.Int = int_;
-            this.Level = 1;
-            this.ExpCurrent = 0;
+            Str = str;
+            Dex = dex;
+            Cons = cons;
+            Int = int_;
+            Level = 1;
+            ExpCurrent = 0;
         }
 
         public override string ToString()

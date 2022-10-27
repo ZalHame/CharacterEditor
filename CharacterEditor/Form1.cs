@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace CharacterEditor
 {
@@ -192,57 +193,22 @@ namespace CharacterEditor
 
         private void ButtonExpPlus500_Click(object sender, EventArgs e)
         {
-            progressExp.Maximum = 1000 + int.Parse(LabelLvl.Text) * 1000;
-            if (progressExp.Value == progressExp.Maximum)
-            {
-                LabelLvl.Text = (int.Parse(LabelLvl.Text) + 1).ToString();
-                progressExp.Value = 0;
-                LabelSkillPoint.Text = (int.Parse(LabelSkillPoint.Text) + 5).ToString();
-            }
-            else
-            {
-                int current = progressExp.Value;
-                current += 500;
-                while (current > progressExp.Maximum)
-                {
-                    LabelLvl.Text = (int.Parse(LabelLvl.Text) + 1).ToString();
-                    progressExp.Value = 0;
-                    current -= progressExp.Maximum;
-                    LabelSkillPoint.Text = (int.Parse(LabelSkillPoint.Text) + 5).ToString();
-                }
-                progressExp.Value = current;
-            }
-            LabelExp.Text = $"{progressExp.Value} / {progressExp.Maximum}";
+            LogicButtonExp(500);
         }
-
         private void ButtonExpPlus1000_Click(object sender, EventArgs e)
         {
-            progressExp.Maximum = 1000 + int.Parse(LabelLvl.Text) * 1000;
-            if (progressExp.Value == progressExp.Maximum)
-            {
-                LabelLvl.Text = (int.Parse(LabelLvl.Text) + 1).ToString();
-                progressExp.Value = 0;
-                LabelSkillPoint.Text = (int.Parse(LabelSkillPoint.Text) + 5).ToString();
-            }
-            else
-            {
-                int current = progressExp.Value;
-                current += 1000;
-                while (current > progressExp.Maximum)
-                {
-                    LabelLvl.Text = (int.Parse(LabelLvl.Text) + 1).ToString();
-                    progressExp.Value = 0;
-                    current -= progressExp.Maximum;
-                    LabelSkillPoint.Text = (int.Parse(LabelSkillPoint.Text) + 5).ToString();
-                }
-                progressExp.Value = current;
-            }
-            LabelExp.Text = $"{progressExp.Value} / {progressExp.Maximum}";
+            LogicButtonExp(1000);
         }
-
         private void ButtonExpPlus5000_Click(object sender, EventArgs e)
         {
+            LogicButtonExp(5000);
+        }
+
+        private void LogicButtonExp(int currentexp)
+        {
             progressExp.Maximum = 1000 + int.Parse(LabelLvl.Text) * 1000;
+            int current = progressExp.Value;
+            current = current + currentexp;
             if (progressExp.Value == progressExp.Maximum)
             {
                 LabelLvl.Text = (int.Parse(LabelLvl.Text) + 1).ToString();
@@ -251,8 +217,6 @@ namespace CharacterEditor
             }
             else
             {
-                int current = progressExp.Value;
-                current += 5000;
                 while (current > progressExp.Maximum)
                 {
                     LabelLvl.Text = (int.Parse(LabelLvl.Text) + 1).ToString();
