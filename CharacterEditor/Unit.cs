@@ -43,6 +43,7 @@ namespace CharacterEditor
             this.Dex = dex;
             this.Cons = cons;
             this.Int = int_;
+            this.Level = 1;
             this.ExpCurrent = 0;
         }
 
