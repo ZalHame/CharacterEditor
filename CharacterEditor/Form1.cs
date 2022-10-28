@@ -208,6 +208,7 @@ namespace CharacterEditor
 
         private void LogicButtonExp(int currentexp)
         {
+            
             LogicLvlExp();
             int current = progressExp.Value;
             current = current + currentexp;
@@ -217,6 +218,8 @@ namespace CharacterEditor
                 progressExp.Value = 0;
                 LabelSkillPoint.Text = (int.Parse(LabelSkillPoint.Text) + 5).ToString();
                 LogicLvlExp();
+                LogicGetSkill();
+                
             }
             else
             {
@@ -227,10 +230,24 @@ namespace CharacterEditor
                     current -= progressExp.Maximum;
                     LabelSkillPoint.Text = (int.Parse(LabelSkillPoint.Text) + 5).ToString();
                     LogicLvlExp();
+                    LogicGetSkill();
                 }
                 progressExp.Value = current;
             }
             LabelExp.Text = $"{progressExp.Value} / {progressExp.Maximum}";
+        }
+        private void LogicGetSkill()
+        {
+            if (int.Parse(LabelLvl.Text) % 3 == 0)
+            {
+                WinSkills winSkills = new WinSkills();
+                winSkills.Show();
+
+                if (winSkills.ShowDialog() == DialogResult.OK)
+                {
+                    
+                }
+            }
         }
         private void LogicLvlExp()
         {

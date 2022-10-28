@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace CharacterEditor
 {
-    public class Skills
+    public class Skill
     {
         public string NameSkill { get; set; }
         public int LvlSkill { get; set; }
 
-        public Skills (string nameSkill, int lvlSkill)
+        public Skill (string nameSkill, int lvlSkill)
         {
             NameSkill = nameSkill;
             LvlSkill = lvlSkill;

@@ -37,7 +37,7 @@ namespace CharacterEditor
         public double Att { get; set; }
         public double MAtt { get; set; }
         public double Def { get; set; }
-        List<Skills> skills = new List<Skills>();
+        public List<Skill> skills = new List<Skill>();
         public Unit(int str, int dex, int cons, int int_)
         {
             Str = str;
