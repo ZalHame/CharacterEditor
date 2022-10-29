@@ -55,6 +55,13 @@ namespace CharacterEditor
             collection.ReplaceOne(x => x.Name == name, unit);
         }
 
+        public static void UpSkill(string name)
+        {
+            
+            
+
+        }
+
         /*public void TestMethod()
         {
             var client = new MongoClient();

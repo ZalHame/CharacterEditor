@@ -13,18 +13,20 @@ namespace CharacterEditor
 {
     public partial class WinSkills : Form
     {
+        public string name = string.Empty;
+        public int lvl = 0;
         public WinSkills()
         {
             InitializeComponent();
         }
 
-        public Skill qqskill = null;
         private void LogicSkillButton(string nameskill)
         {
             this.DialogResult = DialogResult.OK;
-            Skill skill = new Skill(nameskill, 0);
-            qqskill = skill;
-            skill.LvlSkill++;
+            /*Skill skill = new Skill(nameskill, 0);*/
+            /*skill.LvlSkill++;*/
+            name = nameskill;
+            lvl++;
             this.Close();
         }
         private void SkillButtonBorrowedTime_Click(object sender, EventArgs e)

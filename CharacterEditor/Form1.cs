@@ -219,7 +219,6 @@ namespace CharacterEditor
                 LabelSkillPoint.Text = (int.Parse(LabelSkillPoint.Text) + 5).ToString();
                 LogicLvlExp();
                 LogicGetSkill();
-                
             }
             else
             {
@@ -241,10 +240,26 @@ namespace CharacterEditor
             if (int.Parse(LabelLvl.Text) % 3 == 0)
             {
                 WinSkills winSkills = new WinSkills();
-                winSkills.Show();
+                var client = new MongoClient();
+                var database = client.GetDatabase("CharList");
+                var collection = database.GetCollection<Unit>("Units");
+                var one = collection.Find(x => x.Name == ListChar.SelectedItem.ToString()).FirstOrDefault();
 
                 if (winSkills.ShowDialog() == DialogResult.OK)
                 {
+                    Skill skill = new Skill(winSkills.name, winSkills.lvl);
+                    foreach (var i in one.skills)
+                    {
+                        if (skill.NameSkill != i.NameSkill)
+                        {
+                            var updatePush = Builders<Unit>.Update.Push("skill", skill);
+                            collection.UpdateOne(x => x.Name == TextBoxNickname.Text, updatePush);
+                        }
+                        else
+                        {
+                            skill.LvlSkill++;
+                        }
+                    }
                     
                 }
             }
