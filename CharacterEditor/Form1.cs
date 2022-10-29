@@ -248,7 +248,9 @@ namespace CharacterEditor
                 if (winSkills.ShowDialog() == DialogResult.OK)
                 {
                     Skill skill = new Skill(winSkills.name, winSkills.lvl);
-                    foreach (var i in one.skills)
+                    var updatePush = Builders<Unit>.Update.Push("skill", skill);
+                    collection.UpdateOne(x => x.Name == TextBoxNickname.Text, updatePush);
+                    /*foreach (var i in one.skills)
                     {
                         if (skill.NameSkill != i.NameSkill)
                         {
@@ -257,9 +259,12 @@ namespace CharacterEditor
                         }
                         else
                         {
+                            one.skills.Remove(skill);
                             skill.LvlSkill++;
+                            var updatePush = Builders<Unit>.Update.Push("skill", skill);
+                            collection.UpdateOne(x => x.Name == TextBoxNickname.Text, updatePush);
                         }
-                    }
+                    }*/
                     
                 }
             }
