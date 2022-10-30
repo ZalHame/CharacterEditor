@@ -249,7 +249,6 @@ namespace CharacterEditor
                 {
                     Skill skill = new Skill(winSkills.name, winSkills.lvl);
                     var updatePush = Builders<Unit>.Update.Push("skills", skill);
-                    collection.UpdateOne(x => x.Name == TextBoxNickname.Text, updatePush);
                     bool ftskill = false;
                     foreach (var i in one.skills)
                     {
@@ -258,12 +257,9 @@ namespace CharacterEditor
                             ftskill = true;
                         }
                     }
-
                     if (ftskill == true)
                     {
                         skill.LvlSkill++;
-                        collection.UpdateOne(x => x.Name == TextBoxNickname.Text, updatePush);
-                        one.skills.Clear();
                         collection.UpdateOne(x => x.Name == TextBoxNickname.Text, updatePush);
                     }
                     else
