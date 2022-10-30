@@ -248,26 +248,48 @@ namespace CharacterEditor
                 if (winSkills.ShowDialog() == DialogResult.OK)
                 {
                     Skill skill = new Skill(winSkills.name, winSkills.lvl);
-                    var updatePush = Builders<Unit>.Update.Push("skill", skill);
+                    var updatePush = Builders<Unit>.Update.Push("skills", skill);
                     collection.UpdateOne(x => x.Name == TextBoxNickname.Text, updatePush);
+                    bool ftskill = false;
+                    foreach (var i in one.skills)
+                    {
+                        if (i.NameSkill.ToString() == skill.NameSkill.ToString())
+                        {
+                            ftskill = true;
+                        }
+                    }
+
+                    if (ftskill == true)
+                    {
+                        skill.LvlSkill++;
+                        collection.UpdateOne(x => x.Name == TextBoxNickname.Text, updatePush);
+                        one.skills.Clear();
+                        collection.UpdateOne(x => x.Name == TextBoxNickname.Text, updatePush);
+                    }
+                    else
+                    {
+                        collection.UpdateOne(x => x.Name == TextBoxNickname.Text, updatePush);
+                    }
+
                     /*foreach (var i in one.skills)
                     {
-                        if (skill.NameSkill != i.NameSkill)
+                        if (one.skill.Contains(skills) i.NameSkill.ToString() == skill.NameSkill.ToString())
                         {
+                            one.skill.Remove(skill);
+                            skill.LvlSkill++;
                             var updatePush = Builders<Unit>.Update.Push("skill", skill);
                             collection.UpdateOne(x => x.Name == TextBoxNickname.Text, updatePush);
                         }
                         else
                         {
-                            one.skills.Remove(skill);
-                            skill.LvlSkill++;
+
                             var updatePush = Builders<Unit>.Update.Push("skill", skill);
                             collection.UpdateOne(x => x.Name == TextBoxNickname.Text, updatePush);
                         }
                     }*/
-                    
                 }
             }
+            else { return; }
         }
         private void LogicLvlExp()
         {

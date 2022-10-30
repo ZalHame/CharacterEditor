@@ -23,10 +23,8 @@ namespace CharacterEditor
         private void LogicSkillButton(string nameskill)
         {
             this.DialogResult = DialogResult.OK;
-            /*Skill skill = new Skill(nameskill, 0);*/
-            /*skill.LvlSkill++;*/
-            name = nameskill;
             lvl++;
+            name = nameskill;
             this.Close();
         }
         private void SkillButtonBorrowedTime_Click(object sender, EventArgs e)
