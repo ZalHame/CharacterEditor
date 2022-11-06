@@ -13,31 +13,34 @@ namespace CharacterEditor
 {
     public partial class WinSkills : Form
     {
-        public string name = string.Empty;
-        public int lvl = 0;
+        public Skill skill = null;
         public WinSkills()
         {
             InitializeComponent();
         }
-
-        private void LogicSkillButton(string nameskill)
-        {
-            this.DialogResult = DialogResult.OK;
-            lvl++;
-            name = nameskill;
-            this.Close();
-        }
         private void SkillButtonBorrowedTime_Click(object sender, EventArgs e)
         {
-            LogicSkillButton("Borrowed Time");
+            this.DialogResult = DialogResult.OK;
+            BorrowedTime borrowedTime = new BorrowedTime();
+            skill = borrowedTime;
+            skill.LvlSkill++;
+            this.Close();
         }
         private void SkillButtonCoupdeGrace_Click(object sender, EventArgs e)
         {
-            LogicSkillButton("Coup de Grace");
+            this.DialogResult = DialogResult.OK;
+            CoupdeGrace coupdeGrace = new CoupdeGrace();
+            skill = coupdeGrace;
+            skill.LvlSkill++;
+            this.Close();
         }
         private void SkillButtonFingerofDeath_Click(object sender, EventArgs e)
         {
-            LogicSkillButton("Finger of Death");
+            this.DialogResult = DialogResult.OK;
+            FingerofDeath fingerofDeath = new FingerofDeath();
+            skill = fingerofDeath;
+            skill.LvlSkill++;
+            this.Close();
         }
     }
 }

@@ -150,6 +150,7 @@ namespace CharacterEditor
             unit.Name = TextBoxNickname.Text;
             unit.Level = int.Parse(LabelLvl.Text);
             unit.ExpCurrent = progressExp.Value;
+            unit.Skills = skills;
         }
 
         private void ComboBoxClass_SelectedIndexChanged(object sender, EventArgs e)
@@ -208,7 +209,6 @@ namespace CharacterEditor
 
         private void LogicButtonExp(int currentexp)
         {
-            
             LogicLvlExp();
             int current = progressExp.Value;
             current = current + currentexp;
@@ -235,57 +235,33 @@ namespace CharacterEditor
             }
             LabelExp.Text = $"{progressExp.Value} / {progressExp.Maximum}";
         }
+
+        List <Skill> skills = new List <Skill>();
         private void LogicGetSkill()
         {
             if (int.Parse(LabelLvl.Text) % 3 == 0)
             {
                 WinSkills winSkills = new WinSkills();
-                var client = new MongoClient();
-                var database = client.GetDatabase("CharList");
-                var collection = database.GetCollection<Unit>("Units");
-                var one = collection.Find(x => x.Name == ListChar.SelectedItem.ToString()).FirstOrDefault();
-
                 if (winSkills.ShowDialog() == DialogResult.OK)
                 {
-                    Skill skill = new Skill(winSkills.name, winSkills.lvl);
-                    var updatePush = Builders<Unit>.Update.Push("skills", skill);
-                    bool ftskill = false;
-                    foreach (var i in one.skills)
-                    {
-                        if (i.NameSkill.ToString() == skill.NameSkill.ToString())
-                        {
-                            ftskill = true;
-                        }
-                    }
-                    if (ftskill == true)
-                    {
-                        skill.LvlSkill++;
-                        collection.UpdateOne(x => x.Name == TextBoxNickname.Text, updatePush);
-                    }
-                    else
-                    {
-                        collection.UpdateOne(x => x.Name == TextBoxNickname.Text, updatePush);
-                    }
+                    skills.Add(winSkills.skill);
 
-                    /*foreach (var i in one.skills)
+                    for (int i = 0; i < 3; i++)
                     {
-                        if (one.skill.Contains(skills) i.NameSkill.ToString() == skill.NameSkill.ToString())
+                        for (int j = i + 1; j < skills.Count; j++)
                         {
-                            one.skill.Remove(skill);
-                            skill.LvlSkill++;
-                            var updatePush = Builders<Unit>.Update.Push("skill", skill);
-                            collection.UpdateOne(x => x.Name == TextBoxNickname.Text, updatePush);
-                        }
-                        else
-                        {
+                            if (skills[i].NameSkill == skills[j].NameSkill)
+                            {
+                                skills[i].LvlSkill += 1;
+                                skills.Remove(skills[j]);
+                                MessageBox.Show($"Уровень {skills[i].NameSkill} " +
+                                                $"повышен до {skills[i].LvlSkill}-ого ");
 
-                            var updatePush = Builders<Unit>.Update.Push("skill", skill);
-                            collection.UpdateOne(x => x.Name == TextBoxNickname.Text, updatePush);
+                            }
                         }
-                    }*/
+                    }
                 }
             }
-            else { return; }
         }
         private void LogicLvlExp()
         {

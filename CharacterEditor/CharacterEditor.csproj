@@ -148,6 +148,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BorrowedTime.cs" />
+    <Compile Include="CoupdeGrace.cs" />
+    <Compile Include="FingerofDeath.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -37,7 +37,8 @@ namespace CharacterEditor
         public double Att { get; set; }
         public double MAtt { get; set; }
         public double Def { get; set; }
-        public List<Skill> skills = new List<Skill>();
+        [BsonIgnoreIfNull]
+        public List<Skill> Skills { get; set; }
         public Unit(int str, int dex, int cons, int int_)
         {
             Str = str;
