@@ -53,6 +53,8 @@ namespace CharacterEditor
             LabelExp.Text = $"{one?.ExpCurrent} / {progressExp.Maximum}";
             progressExp.Value = 0;
             LogicLvlExp();
+            skills = new List<Skill>();
+            skills = one?.Skills;
         }
 
         private void Create_Click(object sender, EventArgs e)
@@ -169,6 +171,7 @@ namespace CharacterEditor
                     Wizard wizard = new Wizard();
                     Value(wizard);
                     break;
+                default: return;
             }
             progressExp.Value = 0;
             Create.Visible = true;
@@ -236,7 +239,7 @@ namespace CharacterEditor
             LabelExp.Text = $"{progressExp.Value} / {progressExp.Maximum}";
         }
 
-        List <Skill> skills = new List <Skill>();
+        List<Skill> skills = new List<Skill>();
         private void LogicGetSkill()
         {
             if (int.Parse(LabelLvl.Text) % 3 == 0)
@@ -255,8 +258,7 @@ namespace CharacterEditor
                                 skills[i].LvlSkill += 1;
                                 skills.Remove(skills[j]);
                                 MessageBox.Show($"Уровень {skills[i].NameSkill} " +
-                                                $"повышен до {skills[i].LvlSkill}-ого ");
-
+                                                $"повышен до {skills[i].LvlSkill}-го ");
                             }
                         }
                     }
