@@ -43,261 +43,261 @@
             "Броня",
             "Низкое",
             "Воин",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "40",
+            "15",
+            "30",
+            "10",
+            "500"}, -1);
             System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "Железный меч",
             "Оружие",
             "Низкое",
             "Воин",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "40",
+            "15",
+            "25",
+            "10",
+            "300"}, -1);
             System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "Эбонитовые шлем",
             "Шлем",
             "Среднее",
             "Воин",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "100",
+            "30",
+            "60",
+            "15",
+            "1000"}, -1);
             System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
             "Эбонитовые нагрудник",
             "Броня",
             "Среднее",
             "Воин",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "100",
+            "35",
+            "55",
+            "15",
+            "2000"}, -1);
             System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
             "Огненная секира",
             "Оружие",
             "Среднее",
             "Воин",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "100",
+            "30",
+            "55",
+            "15",
+            "1500"}, -1);
             System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
             "Шлем черного дракона",
             "Шлем",
             "Высокое",
             "Воин",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "200",
+            "40",
+            "80",
+            "25",
+            "5000"}, -1);
             System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
             "Кираса титанов",
             "Броня",
             "Высокое",
             "Воин",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "200",
+            "45",
+            "80",
+            "30",
+            "6000"}, -1);
             System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
             "Меч мастера клинков",
             "Оружие",
             "Высокое",
             "Воин",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "200",
+            "40",
+            "80",
+            "25",
+            "5500"}, -1);
             System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
             "Кожаный шлем",
             "Шлем",
             "Низкое",
             "Убийца",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "15",
+            "40",
+            "30",
+            "25",
+            "150"}, -1);
             System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem(new string[] {
             "Дублёная куртка",
             "Броня",
             "Низкое",
             "Убийца",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "15",
+            "40",
+            "25",
+            "25",
+            "300"}, -1);
             System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
             "Железный кинжал",
             "Оружие",
             "Низкое",
             "Убийца",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "15",
+            "50",
+            "30",
+            "25",
+            "200"}, -1);
             System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem(new string[] {
             "Капюшон обмана",
             "Шлем",
             "Среднее",
             "Убийца",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "20",
+            "100",
+            "35",
+            "40",
+            "1500"}, -1);
             System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem(new string[] {
             "Накидка пустоты",
             "Броня",
             "Среднее",
             "Убийца",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "20",
+            "100",
+            "30",
+            "35",
+            "2500"}, -1);
             System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem(new string[] {
             "Парные кинжалы смерти",
             "Оружие",
             "Среднее",
             "Убийца",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "20",
+            "100",
+            "30",
+            "40",
+            "2000"}, -1);
             System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem(new string[] {
             "Капюшон короля воров",
             "Шлем",
             "Высокое",
             "Убийца",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "25",
+            "200",
+            "60",
+            "50",
+            "6000"}, -1);
             System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem(new string[] {
             "Кровавая накидка богов",
             "Броня",
             "Высокое",
             "Убийца",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "30",
+            "200",
+            "55",
+            "55",
+            "6500"}, -1);
             System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem(new string[] {
             "Артефактный клинок древних ",
             "Оружие",
             "Высокое",
             "Убийца",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "25",
+            "200",
+            "60",
+            "50",
+            "7000"}, -1);
             System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem(new string[] {
             "Тканевая шляпа",
             "Шлем",
             "Низкое",
             "Маг",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "10",
+            "20",
+            "30",
+            "50",
+            "100"}, -1);
             System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem(new string[] {
             "Тканевый плащ",
             "Броня",
             "Низкое",
             "Маг",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "10",
+            "20",
+            "30",
+            "50",
+            "200"}, -1);
             System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem(new string[] {
             "Магический посох",
             "Оружие",
             "Низкое",
             "Маг",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "10",
+            "35",
+            "30",
+            "60",
+            "150"}, -1);
             System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem(new string[] {
             "Шляпа элементалиста",
             "Шлем",
             "Среднее",
             "Маг",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "15",
+            "40",
+            "30",
+            "100",
+            "1500"}, -1);
             System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem(new string[] {
             "Грозовые одеяния",
             "Броня",
             "Среднее",
             "Маг",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "15",
+            "40",
+            "35",
+            "100",
+            "2000"}, -1);
             System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem(new string[] {
             "Посох Аганима",
             "Оружие",
             "Среднее",
             "Маг",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "15",
+            "40",
+            "35",
+            "100",
+            "2500"}, -1);
             System.Windows.Forms.ListViewItem listViewItem25 = new System.Windows.Forms.ListViewItem(new string[] {
             "Корона повелителя мертвых",
             "Шлем",
             "Высокое",
             "Маг",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "20",
+            "50",
+            "40",
+            "200",
+            "10000"}, -1);
             System.Windows.Forms.ListViewItem listViewItem26 = new System.Windows.Forms.ListViewItem(new string[] {
             "Плащ древнего лича",
             "Броня",
             "Высокое",
             "Маг",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "20",
+            "55",
+            "40",
+            "200",
+            "15000"}, -1);
             System.Windows.Forms.ListViewItem listViewItem27 = new System.Windows.Forms.ListViewItem(new string[] {
             "Гримуар короля магов",
             "Оружие",
             "Высокое",
             "Маг",
-            "",
-            "",
-            "",
-            "",
-            ""}, -1);
+            "20",
+            "50",
+            "40",
+            "220",
+            "20000"}, -1);
             this.lv_Shop = new System.Windows.Forms.ListView();
             this.Item = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));

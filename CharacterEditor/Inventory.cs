@@ -92,8 +92,10 @@ namespace CharacterEditor
 
         private void Buy_Click(object sender, EventArgs e)
         {
-            if (Str >= Convert.ToInt32(lv_Shop.SelectedItems[0].SubItems[4].Text) && Dex >= Convert.ToInt32(lv_Shop.SelectedItems[0].SubItems[5].Text)
-                && Cons >= Convert.ToInt32(lv_Shop.SelectedItems[0].SubItems[6].Text) && Int >= Convert.ToInt32(lv_Shop.SelectedItems[0].SubItems[7].Text))
+            if (Str >= Convert.ToInt32(lv_Shop.SelectedItems[0].SubItems[4].Text) &&
+                Dex >= Convert.ToInt32(lv_Shop.SelectedItems[0].SubItems[5].Text) &&
+                Cons >= Convert.ToInt32(lv_Shop.SelectedItems[0].SubItems[6].Text) &&
+                Int >= Convert.ToInt32(lv_Shop.SelectedItems[0].SubItems[7].Text))
             {
                 ListItems.Items.Add(lv_Shop.SelectedItems[0].Text);
                 switch (lv_Shop.SelectedItems[0].SubItems[1].Text)
@@ -203,33 +205,33 @@ namespace CharacterEditor
                         cash = Convert.ToInt32(lv_Shop.Items[i].SubItems[8].Text);
                         if (lv_Shop.Items[i].SubItems[3].Text == "Воин")
                         {
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Низк")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Низкое")
                             {
                                 PhDef += 10;
                             }
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Средн")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Среднее")
                             {
                                 Hp += 30;
                                 PhDef += 15;
                             }
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Высок")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Высокое")
                             {
                                 Hp += 60;
                                 PhDef += 40;
                             }
                         }
-                        if (lv_Shop.Items[i].SubItems[3].Text == "Разбойник")
+                        if (lv_Shop.Items[i].SubItems[3].Text == "Убийца")
                         {
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Низк")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Низкое")
                             {
                                 PhDef += 7;
                             }
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Средн")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Среднее")
                             {
                                 Hp += 20;
                                 PhDef += 10;
                             }
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Высок")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Высокое")
                             {
                                 Hp += 50;
                                 PhDef += 30;
@@ -237,18 +239,18 @@ namespace CharacterEditor
                         }
                         if (lv_Shop.Items[i].SubItems[3].Text == "Маг")
                         {
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Низк")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Низкое")
                             {
                                 PhDef += 5;
                                 Mana += 30;
                             }
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Средн")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Среднее")
                             {
                                 Hp += 10;
                                 PhDef += 10;
                                 Mana += 60;
                             }
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Высок")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Высокое")
                             {
                                 Hp += 20;
                                 PhDef += 30;
@@ -275,38 +277,38 @@ namespace CharacterEditor
                         cash = Convert.ToInt32(lv_Shop.Items[i].SubItems[8].Text);
                         if (lv_Shop.Items[i].SubItems[3].Text == "Воин")
                         {
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Низк")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Низкое")
                             {
                                 PhDef += 30;
                                 Hp += 30;
                             }
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Средн")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Среднее")
                             {
                                 Hp += 60;
                                 PhDef += 70;
                                 Damage += 20;
                             }
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Высок")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Высокое")
                             {
                                 Hp += 100;
                                 PhDef += 100;
                                 Damage += 40;
                             }
                         }
-                        if (lv_Shop.Items[i].SubItems[3].Text == "Разбойник")
+                        if (lv_Shop.Items[i].SubItems[3].Text == "Убийца")
                         {
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Низк")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Низкое")
                             {
                                 PhDef += 15;
                                 Hp += 15;
                             }
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Средн")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Среднее")
                             {
                                 Hp += 30;
                                 PhDef += 50;
                                 Damage += 10;
                             }
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Высок")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Высокое")
                             {
                                 Hp += 75;
                                 PhDef += 80;
@@ -315,19 +317,19 @@ namespace CharacterEditor
                         }
                         if (lv_Shop.Items[i].SubItems[3].Text == "Маг")
                         {
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Низк")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Низкое")
                             {
                                 PhDef += 10;
                                 Mana += 50;
                             }
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Средн")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Среднее")
                             {
                                 Hp += 10;
                                 PhDef += 15;
                                 Mana += 80;
                                 MageAttack += 35;
                             }
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Высок")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Высокое")
                             {
                                 Hp += 20;
                                 PhDef += 30;
@@ -355,33 +357,33 @@ namespace CharacterEditor
                         cash = Convert.ToInt32(lv_Shop.Items[i].SubItems[8].Text);
                         if (lv_Shop.Items[i].SubItems[3].Text == "Воин")
                         {
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Низк")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Низкое")
                             {
                                 Damage += 15;
                             }
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Средн")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Среднее")
                             {
                                 PhDef += 20;
                                 Damage += 40;
                             }
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Высок")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Высокое")
                             {
                                 PhDef += 40;
                                 Damage += 100;
                             }
                         }
-                        if (lv_Shop.Items[i].SubItems[3].Text == "Разбойник")
+                        if (lv_Shop.Items[i].SubItems[3].Text == "Убийца")
                         {
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Низк")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Низкое")
                             {
                                 Damage += 10;
                             }
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Средн")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Среднее")
                             {
                                 Damage += 25;
                                 PhDef += 5;
                             }
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Высок")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Высокое")
                             {
                                 PhDef += 30;
                                 Damage += 75;
@@ -389,19 +391,19 @@ namespace CharacterEditor
                         }
                         if (lv_Shop.Items[i].SubItems[3].Text == "Маг")
                         {
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Низк")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Низкое")
                             {
                                 Damage += 10;
                                 Mana += 50;
                                 MageAttack += 20;
                             }
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Средн")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Среднее")
                             {
                                 Damage += 25;
                                 Mana += 100;
                                 MageAttack += 45;
                             }
-                            if (lv_Shop.Items[i].SubItems[2].Text == "Высок")
+                            if (lv_Shop.Items[i].SubItems[2].Text == "Высокое")
                             {
                                 Damage += 50;
                                 Mana += 200;
