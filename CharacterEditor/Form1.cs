@@ -279,9 +279,6 @@ namespace CharacterEditor
             progressExp.Maximum = count * 1000;
         }
 
-
-        List<Item> Items = new List<Item>();
-        List<Item> AllItems = new List<Item>();
         private void Inventory_Click(object sender, EventArgs e)
         {
             Inventory inventory = new Inventory();

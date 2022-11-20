@@ -39,8 +39,7 @@ namespace CharacterEditor
         private void InventoryLoad()
         {
             var one = MongoDB.Find(NameChar);
-            /*one.Items = Items;
-            one.AllItems = AllItems;*/
+
             foreach (var item in AllItems)
             {
                 ListItems.Items.Add(item.ItemName);
