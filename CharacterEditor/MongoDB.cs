@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace CharacterEditor
 {
-    public class MongoDB
+    internal class MongoDB
     {
         public static void AddToDB(Unit unit)
         {
