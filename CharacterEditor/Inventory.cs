@@ -19,11 +19,12 @@ namespace CharacterEditor
         public int Dex = 0;
         public int Cons = 0;
         public int Int = 0;
-        public double Damage = 0;
-        public double Hp = 0;
-        public double PhDef = 0;
-        public double Mana = 0;
-        public double MageAttack = 0;
+        public double HP = 0;
+        public double MP = 0;
+        public double Att = 0;
+        public double MAtt = 0;
+        public double Def = 0;
+        int count = 0;
 
         public Inventory()
         {
@@ -38,55 +39,59 @@ namespace CharacterEditor
 
         private void InventoryLoad()
         {
-            var one = MongoDB.Find(NameChar);
+            if (count == 0)
+            {
+                var one = MongoDB.Find(NameChar);
+                foreach (var item in AllItems)
+                {
+                    ListItems.Items.Add(item.ItemName);
+                }
+                foreach (var item in one.Items)
+                {
+                    for (int i = 0; i < lv_Shop.Items.Count; i++)
+                    {
+                        if (item.ItemName == lv_Shop.Items[i].Text)
+                        {
+                            switch (lv_Shop.Items[i].SubItems[1].Text)
+                            {
+                                case "Шлем":
+                                    ComboBoxHelmet.Text = item.ItemName;
+                                    break;
+                                case "Броня":
+                                    ComboBoxArmor.Text = item.ItemName;
+                                    break;
+                                case "Оружие":
+                                    ComboBoxWeapon.Text = item.ItemName;
+                                    break;
+                                default: break;
+                            }
+                        }
+                    }
+                }
+                foreach (var item in ListItems.Items)
+                {
+                    for (int i = 0; i < lv_Shop.Items.Count; i++)
+                    {
+                        if (item.ToString() == lv_Shop.Items[i].Text)
+                        {
+                            switch (lv_Shop.Items[i].SubItems[1].Text)
+                            {
+                                case "Шлем":
+                                    ComboBoxHelmet.Items.Add(lv_Shop.Items[i].Text);
+                                    break;
+                                case "Броня":
+                                    ComboBoxArmor.Items.Add(lv_Shop.Items[i].Text);
+                                    break;
+                                case "Оружие":
+                                    ComboBoxWeapon.Items.Add(lv_Shop.Items[i].Text);
+                                    break;
+                                default: break;
+                            }
+                        }
+                    }
+                }
 
-            foreach (var item in AllItems)
-            {
-                ListItems.Items.Add(item.ItemName);
-            }
-            foreach (var item in one.Items)
-            {
-                for (int i = 0; i < lv_Shop.Items.Count; i++)
-                {
-                    if (item.ItemName == lv_Shop.Items[i].Text)
-                    {
-                        switch (lv_Shop.Items[i].SubItems[1].Text)
-                        {
-                            case "Шлем":
-                                ComboBoxHelmet.Text = item.ItemName;
-                                break;
-                            case "Броня":
-                                ComboBoxArmor.Text = item.ItemName;
-                                break;
-                            case "Оружие":
-                                ComboBoxWeapon.Text = item.ItemName;
-                                break;
-                            default: break;
-                        }
-                    }
-                }
-            }
-            foreach (var item in ListItems.Items)
-            {
-                for (int i = 0; i < lv_Shop.Items.Count; i++)
-                {
-                    if (item.ToString() == lv_Shop.Items[i].Text)
-                    {
-                        switch (lv_Shop.Items[i].SubItems[1].Text)
-                        {
-                            case "Шлем":
-                                ComboBoxHelmet.Items.Add(lv_Shop.Items[i].Text);
-                                break;
-                            case "Броня":
-                                ComboBoxArmor.Items.Add(lv_Shop.Items[i].Text);
-                                break;
-                            case "Оружие":
-                                ComboBoxWeapon.Items.Add(lv_Shop.Items[i].Text);
-                                break;
-                            default: break;
-                        }
-                    }
-                }
+                count++;
             }
         }
 
@@ -195,6 +200,7 @@ namespace CharacterEditor
 
         private void ButtonOK_Click(object sender, EventArgs e)
         {
+            Items.Clear();
             if (ComboBoxHelmet.Text != "")
             {
                 int cash = 0;
@@ -207,64 +213,64 @@ namespace CharacterEditor
                         {
                             if (lv_Shop.Items[i].SubItems[2].Text == "Низкое")
                             {
-                                PhDef += 10;
+                                Def += 10;
                             }
                             if (lv_Shop.Items[i].SubItems[2].Text == "Среднее")
                             {
-                                Hp += 30;
-                                PhDef += 15;
+                                HP += 30;
+                                Def += 15;
                             }
                             if (lv_Shop.Items[i].SubItems[2].Text == "Высокое")
                             {
-                                Hp += 60;
-                                PhDef += 40;
+                                HP += 60;
+                                Def += 40;
                             }
                         }
                         if (lv_Shop.Items[i].SubItems[3].Text == "Убийца")
                         {
                             if (lv_Shop.Items[i].SubItems[2].Text == "Низкое")
                             {
-                                PhDef += 7;
+                                Def += 7;
                             }
                             if (lv_Shop.Items[i].SubItems[2].Text == "Среднее")
                             {
-                                Hp += 20;
-                                PhDef += 10;
+                                HP += 20;
+                                Def += 10;
                             }
                             if (lv_Shop.Items[i].SubItems[2].Text == "Высокое")
                             {
-                                Hp += 50;
-                                PhDef += 30;
+                                HP += 50;
+                                Def += 30;
                             }
                         }
                         if (lv_Shop.Items[i].SubItems[3].Text == "Маг")
                         {
                             if (lv_Shop.Items[i].SubItems[2].Text == "Низкое")
                             {
-                                PhDef += 5;
-                                Mana += 30;
+                                Def += 5;
+                                MP += 30;
                             }
                             if (lv_Shop.Items[i].SubItems[2].Text == "Среднее")
                             {
-                                Hp += 10;
-                                PhDef += 10;
-                                Mana += 60;
+                                HP += 10;
+                                Def += 10;
+                                MP += 60;
                             }
                             if (lv_Shop.Items[i].SubItems[2].Text == "Высокое")
                             {
-                                Hp += 20;
-                                PhDef += 30;
-                                Mana += 100;
+                                HP += 20;
+                                Def += 30;
+                                MP += 100;
                             }
                         }
                     }
                 }
                 Helmet helmet = new Helmet(ComboBoxHelmet.Text, cash);
-                helmet.Damage = Damage;
-                helmet.Hp = Hp;
-                helmet.PhDef = PhDef;
-                helmet.Mana = Mana;
-                helmet.MageAttack = MageAttack;
+                helmet.HP = HP;
+                helmet.MP = MP;
+                helmet.Att = Att;
+                helmet.MAtt = MAtt;
+                helmet.Def = Def;
                 Items.Add(helmet);
             }
             if (ComboBoxArmor.Text != "")
@@ -279,72 +285,72 @@ namespace CharacterEditor
                         {
                             if (lv_Shop.Items[i].SubItems[2].Text == "Низкое")
                             {
-                                PhDef += 30;
-                                Hp += 30;
+                                Def += 30;
+                                HP += 30;
                             }
                             if (lv_Shop.Items[i].SubItems[2].Text == "Среднее")
                             {
-                                Hp += 60;
-                                PhDef += 70;
-                                Damage += 20;
+                                HP += 60;
+                                Def += 70;
+                                Att += 20;
                             }
                             if (lv_Shop.Items[i].SubItems[2].Text == "Высокое")
                             {
-                                Hp += 100;
-                                PhDef += 100;
-                                Damage += 40;
+                                HP += 100;
+                                Def += 100;
+                                Att += 40;
                             }
                         }
                         if (lv_Shop.Items[i].SubItems[3].Text == "Убийца")
                         {
                             if (lv_Shop.Items[i].SubItems[2].Text == "Низкое")
                             {
-                                PhDef += 15;
-                                Hp += 15;
+                                Def += 15;
+                                HP += 15;
                             }
                             if (lv_Shop.Items[i].SubItems[2].Text == "Среднее")
                             {
-                                Hp += 30;
-                                PhDef += 50;
-                                Damage += 10;
+                                HP += 30;
+                                Def += 50;
+                                Att += 10;
                             }
                             if (lv_Shop.Items[i].SubItems[2].Text == "Высокое")
                             {
-                                Hp += 75;
-                                PhDef += 80;
-                                Damage += 25;
+                                HP += 75;
+                                Def += 80;
+                                Att += 25;
                             }
                         }
                         if (lv_Shop.Items[i].SubItems[3].Text == "Маг")
                         {
                             if (lv_Shop.Items[i].SubItems[2].Text == "Низкое")
                             {
-                                PhDef += 10;
-                                Mana += 50;
+                                Def += 10;
+                                MP += 50;
                             }
                             if (lv_Shop.Items[i].SubItems[2].Text == "Среднее")
                             {
-                                Hp += 10;
-                                PhDef += 15;
-                                Mana += 80;
-                                MageAttack += 35;
+                                HP += 10;
+                                Def += 15;
+                                MP += 80;
+                                MAtt += 35;
                             }
                             if (lv_Shop.Items[i].SubItems[2].Text == "Высокое")
                             {
-                                Hp += 20;
-                                PhDef += 30;
-                                Mana += 100;
-                                MageAttack += 60;
+                                HP += 20;
+                                Def += 30;
+                                MP += 100;
+                                MAtt += 60;
                             }
                         }
                     }
                 }
                 Armor armor = new Armor(ComboBoxArmor.Text, cash);
-                armor.Damage = Damage;
-                armor.Hp = Hp;
-                armor.PhDef = PhDef;
-                armor.Mana = Mana;
-                armor.MageAttack = MageAttack;
+                armor.HP = HP;
+                armor.MP = MP;
+                armor.Att = Att;
+                armor.MAtt = MAtt;
+                armor.Def = Def;
                 Items.Add(armor);
             }
             if (ComboBoxWeapon.Text != "")
@@ -359,65 +365,65 @@ namespace CharacterEditor
                         {
                             if (lv_Shop.Items[i].SubItems[2].Text == "Низкое")
                             {
-                                Damage += 15;
+                                Att += 15;
                             }
                             if (lv_Shop.Items[i].SubItems[2].Text == "Среднее")
                             {
-                                PhDef += 20;
-                                Damage += 40;
+                                Def += 20;
+                                Att += 40;
                             }
                             if (lv_Shop.Items[i].SubItems[2].Text == "Высокое")
                             {
-                                PhDef += 40;
-                                Damage += 100;
+                                Def += 40;
+                                Att += 100;
                             }
                         }
                         if (lv_Shop.Items[i].SubItems[3].Text == "Убийца")
                         {
                             if (lv_Shop.Items[i].SubItems[2].Text == "Низкое")
                             {
-                                Damage += 10;
+                                Att += 10;
                             }
                             if (lv_Shop.Items[i].SubItems[2].Text == "Среднее")
                             {
-                                Damage += 25;
-                                PhDef += 5;
+                                Att += 25;
+                                Def += 5;
                             }
                             if (lv_Shop.Items[i].SubItems[2].Text == "Высокое")
                             {
-                                PhDef += 30;
-                                Damage += 75;
+                                Def += 30;
+                                Att += 75;
                             }
                         }
                         if (lv_Shop.Items[i].SubItems[3].Text == "Маг")
                         {
                             if (lv_Shop.Items[i].SubItems[2].Text == "Низкое")
                             {
-                                Damage += 10;
-                                Mana += 50;
-                                MageAttack += 20;
+                                Att += 10;
+                                MP += 50;
+                                MAtt += 20;
                             }
                             if (lv_Shop.Items[i].SubItems[2].Text == "Среднее")
                             {
-                                Damage += 25;
-                                Mana += 100;
-                                MageAttack += 45;
+                                Att += 25;
+                                MP += 100;
+                                MAtt += 45;
                             }
                             if (lv_Shop.Items[i].SubItems[2].Text == "Высокое")
                             {
-                                Damage += 50;
-                                Mana += 200;
-                                MageAttack += 90;
+                                Att += 50;
+                                MP += 200;
+                                MAtt += 90;
                             }
                         }
                     }
                 }
                 Weapon weapon = new Weapon(ComboBoxWeapon.Text, cash);
-                weapon.Damage = Damage;
-                weapon.Hp = Hp;
-                weapon.PhDef = PhDef;
-                weapon.Mana = Mana;
-                weapon.MageAttack = MageAttack;
+                weapon.HP = HP;
+                weapon.MP = MP;
+                weapon.Att = Att;
+                weapon.MAtt = MAtt;
+                weapon.Def = Def;
                 Items.Add(weapon);
             }
             this.Close();

@@ -58,6 +58,8 @@ namespace CharacterEditor
             LogicLvlExp();
             skills = new List<Skill>();
             skills = one?.Skills;
+            Items = one?.Items;
+            AllItems= one?.AllItems;
         }
 
         private void Create_Click(object sender, EventArgs e)
@@ -156,6 +158,8 @@ namespace CharacterEditor
             unit.Level = int.Parse(LabelLvl.Text);
             unit.ExpCurrent = progressExp.Value;
             unit.Skills = skills;
+            unit.Items = Items;
+            unit.AllItems = AllItems;
         }
 
         private void ComboBoxClass_SelectedIndexChanged(object sender, EventArgs e)
@@ -279,10 +283,14 @@ namespace CharacterEditor
             progressExp.Maximum = count * 1000;
         }
 
+        List<Item> Items = new List<Item>();
+        List<Item> AllItems = new List<Item>();
         private void Inventory_Click(object sender, EventArgs e)
         {
             Inventory inventory = new Inventory();
 
+            inventory.Items = Items;
+            inventory.AllItems = AllItems;
             inventory.Str = int.Parse(LabelStr.Text);
             inventory.Dex = int.Parse(LabelDex.Text);
             inventory.Cons = int.Parse(LabelCons.Text);

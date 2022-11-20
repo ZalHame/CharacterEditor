@@ -18,10 +18,10 @@ namespace CharacterEditor
 
         public string ItemName { get; set; }
         public int ItemPrice { get; set; }
-        public double Damage { get; set; }
-        public double Hp { get; set; }
-        public double PhDef { get; set; }
-        public double Mana { get; set; }
-        public double MageAttack { get; set; }
+        public double HP { get; set; }
+        public double MP { get; set; }
+        public double Att { get; set; }
+        public double MAtt { get; set; }
+        public double Def { get; set; }
     }
 }
