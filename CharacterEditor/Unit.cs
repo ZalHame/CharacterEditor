@@ -11,11 +11,11 @@ namespace CharacterEditor
     [BsonIgnoreExtraElements]
     [BsonKnownTypes(typeof(Wizard), typeof(Rogue), typeof(Warrior))]
 
-    public class Unit
+    internal class Unit
     {
         [BsonId]
         [BsonIgnoreIfDefault]
-        ObjectId _id;
+        public ObjectId _id;
         public int Str;
         public int Dex;
         public int Cons;
@@ -37,8 +37,6 @@ namespace CharacterEditor
         public double Att { get; set; }
         public double MAtt { get; set; }
         public double Def { get; set; }
-        [BsonIgnoreIfNull]
-        public List<Skill> Skills { get; set; }
         public Unit(int str, int dex, int cons, int int_)
         {
             Str = str;
@@ -47,7 +45,19 @@ namespace CharacterEditor
             Int = int_;
             Level = 1;
             ExpCurrent = 0;
+            Items = new List<Item>();
+            AllItems = new List<Item>();
+            Skills = new List<Skill>();
         }
+
+        [BsonIgnoreIfNull]
+        public List<Skill> Skills { get; set; }
+
+        [BsonIgnoreIfNull]
+        public List<Item> Items { get; set; }
+
+        [BsonIgnoreIfNull]
+        public List<Item> AllItems { get; set; }
 
         public override string ToString()
         {

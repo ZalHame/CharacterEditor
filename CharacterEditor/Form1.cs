@@ -1,6 +1,7 @@
 ﻿using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace CharacterEditor
@@ -33,6 +35,7 @@ namespace CharacterEditor
             ButtonExpPlus500.Visible = true;
             ButtonExpPlus1000.Visible = true;
             ButtonExpPlus5000.Visible = true;
+            Inventory.Visible = true;
         }
         private void EditChar(string name)
         {
@@ -179,6 +182,7 @@ namespace CharacterEditor
             ButtonExpPlus500.Visible = false;
             ButtonExpPlus1000.Visible = false;
             ButtonExpPlus5000.Visible = false;
+            Inventory.Visible = false;
         }
         private void Value(Unit unit)
         {
@@ -273,6 +277,25 @@ namespace CharacterEditor
                 count += i;
             }
             progressExp.Maximum = count * 1000;
+        }
+
+
+        List<Item> Items = new List<Item>();
+        List<Item> AllItems = new List<Item>();
+        private void Inventory_Click(object sender, EventArgs e)
+        {
+            Inventory inventory = new Inventory();
+
+            inventory.Str = int.Parse(LabelStr.Text);
+            inventory.Dex = int.Parse(LabelDex.Text);
+            inventory.Cons = int.Parse(LabelCons.Text);
+            inventory.Int = int.Parse(LabelInt.Text);
+            inventory.NameChar = TextBoxNickname.Text;
+
+            if (inventory.DialogResult == DialogResult.OK)
+            {
+                inventory.Show();
+            }
         }
         //---------------------------------------------------------------------------------------------------
         private void ButtonStrMinus_Click(object sender, EventArgs e)

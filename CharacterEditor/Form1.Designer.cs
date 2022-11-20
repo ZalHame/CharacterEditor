@@ -73,6 +73,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.ComboBoxClass = new System.Windows.Forms.ComboBox();
             this.TextBoxNickname = new System.Windows.Forms.TextBox();
+            this.Inventory = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,6 +81,7 @@
             // 
             this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel1.Controls.Add(this.Inventory);
             this.panel1.Controls.Add(this.progressExp);
             this.panel1.Controls.Add(this.ButtonExpPlus5000);
             this.panel1.Controls.Add(this.ButtonExpPlus1000);
@@ -611,6 +613,19 @@
             this.TextBoxNickname.Size = new System.Drawing.Size(193, 22);
             this.TextBoxNickname.TabIndex = 3;
             // 
+            // Inventory
+            // 
+            this.Inventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Inventory.Location = new System.Drawing.Point(416, 496);
+            this.Inventory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Inventory.Name = "Inventory";
+            this.Inventory.Size = new System.Drawing.Size(142, 46);
+            this.Inventory.TabIndex = 59;
+            this.Inventory.Text = "Inventory";
+            this.Inventory.UseVisualStyleBackColor = true;
+            this.Inventory.Visible = false;
+            this.Inventory.Click += new System.EventHandler(this.Inventory_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -674,5 +689,6 @@
         private System.Windows.Forms.Button ButtonExpPlus1000;
         private System.Windows.Forms.Button ButtonExpPlus500;
         private System.Windows.Forms.ProgressBar progressExp;
+        private System.Windows.Forms.Button Inventory;
     }
 }
