@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace CharacterEditor
@@ -160,6 +161,14 @@ namespace CharacterEditor
             unit.Skills = skills;
             unit.Items = Items;
             unit.AllItems = AllItems;
+            foreach (var item in Items)
+            {
+                unit.HP += item.HP;
+                unit.MP += item.MP;
+                unit.Att += item.Att;
+                unit.MAtt += item.MAtt;
+                unit.Def += item.Def;
+            }
         }
 
         private void ComboBoxClass_SelectedIndexChanged(object sender, EventArgs e)
