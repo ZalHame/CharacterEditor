@@ -727,5 +727,11 @@ namespace CharacterEditor
                     break;
             }
         }
+
+        private void ButtonTeams_Click(object sender, EventArgs e)
+        {
+            Teams team = new Teams();
+            team.Show();
+        }
     }
 }

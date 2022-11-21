@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Inventory = new System.Windows.Forms.Button();
             this.progressExp = new System.Windows.Forms.ProgressBar();
             this.ButtonExpPlus5000 = new System.Windows.Forms.Button();
             this.ButtonExpPlus1000 = new System.Windows.Forms.Button();
@@ -73,7 +74,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.ComboBoxClass = new System.Windows.Forms.ComboBox();
             this.TextBoxNickname = new System.Windows.Forms.TextBox();
-            this.Inventory = new System.Windows.Forms.Button();
+            this.ButtonTeams = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,6 +82,7 @@
             // 
             this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel1.Controls.Add(this.ButtonTeams);
             this.panel1.Controls.Add(this.Inventory);
             this.panel1.Controls.Add(this.progressExp);
             this.panel1.Controls.Add(this.ButtonExpPlus5000);
@@ -133,9 +135,22 @@
             this.panel1.Size = new System.Drawing.Size(1101, 583);
             this.panel1.TabIndex = 0;
             // 
+            // Inventory
+            // 
+            this.Inventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Inventory.Location = new System.Drawing.Point(449, 416);
+            this.Inventory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Inventory.Name = "Inventory";
+            this.Inventory.Size = new System.Drawing.Size(142, 46);
+            this.Inventory.TabIndex = 59;
+            this.Inventory.Text = "Inventory";
+            this.Inventory.UseVisualStyleBackColor = true;
+            this.Inventory.Visible = false;
+            this.Inventory.Click += new System.EventHandler(this.Inventory_Click);
+            // 
             // progressExp
             // 
-            this.progressExp.Location = new System.Drawing.Point(343, 338);
+            this.progressExp.Location = new System.Drawing.Point(344, 338);
             this.progressExp.Margin = new System.Windows.Forms.Padding(4);
             this.progressExp.MarqueeAnimationSpeed = 10;
             this.progressExp.Maximum = 1000;
@@ -146,10 +161,10 @@
             // ButtonExpPlus5000
             // 
             this.ButtonExpPlus5000.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonExpPlus5000.Location = new System.Drawing.Point(277, 425);
+            this.ButtonExpPlus5000.Location = new System.Drawing.Point(278, 437);
             this.ButtonExpPlus5000.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonExpPlus5000.Name = "ButtonExpPlus5000";
-            this.ButtonExpPlus5000.Size = new System.Drawing.Size(108, 25);
+            this.ButtonExpPlus5000.Size = new System.Drawing.Size(142, 25);
             this.ButtonExpPlus5000.TabIndex = 57;
             this.ButtonExpPlus5000.Text = "+5000 exp";
             this.ButtonExpPlus5000.UseVisualStyleBackColor = true;
@@ -159,10 +174,10 @@
             // ButtonExpPlus1000
             // 
             this.ButtonExpPlus1000.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonExpPlus1000.Location = new System.Drawing.Point(277, 395);
+            this.ButtonExpPlus1000.Location = new System.Drawing.Point(278, 407);
             this.ButtonExpPlus1000.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonExpPlus1000.Name = "ButtonExpPlus1000";
-            this.ButtonExpPlus1000.Size = new System.Drawing.Size(108, 25);
+            this.ButtonExpPlus1000.Size = new System.Drawing.Size(142, 25);
             this.ButtonExpPlus1000.TabIndex = 56;
             this.ButtonExpPlus1000.Text = "+1000 exp";
             this.ButtonExpPlus1000.UseVisualStyleBackColor = true;
@@ -172,10 +187,10 @@
             // ButtonExpPlus500
             // 
             this.ButtonExpPlus500.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonExpPlus500.Location = new System.Drawing.Point(277, 366);
+            this.ButtonExpPlus500.Location = new System.Drawing.Point(278, 378);
             this.ButtonExpPlus500.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonExpPlus500.Name = "ButtonExpPlus500";
-            this.ButtonExpPlus500.Size = new System.Drawing.Size(108, 25);
+            this.ButtonExpPlus500.Size = new System.Drawing.Size(142, 25);
             this.ButtonExpPlus500.TabIndex = 55;
             this.ButtonExpPlus500.Text = "+500 exp";
             this.ButtonExpPlus500.UseVisualStyleBackColor = true;
@@ -186,7 +201,7 @@
             // 
             this.LabelExp.AutoSize = true;
             this.LabelExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelExp.Location = new System.Drawing.Point(444, 338);
+            this.LabelExp.Location = new System.Drawing.Point(445, 338);
             this.LabelExp.Name = "LabelExp";
             this.LabelExp.Size = new System.Drawing.Size(83, 25);
             this.LabelExp.TabIndex = 54;
@@ -197,7 +212,7 @@
             // 
             this.labelnameExp.AutoSize = true;
             this.labelnameExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelnameExp.Location = new System.Drawing.Point(272, 338);
+            this.labelnameExp.Location = new System.Drawing.Point(273, 338);
             this.labelnameExp.Name = "labelnameExp";
             this.labelnameExp.Size = new System.Drawing.Size(46, 25);
             this.labelnameExp.TabIndex = 53;
@@ -208,7 +223,7 @@
             // 
             this.LabelLvl.AutoSize = true;
             this.LabelLvl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelLvl.Location = new System.Drawing.Point(337, 314);
+            this.LabelLvl.Location = new System.Drawing.Point(338, 314);
             this.LabelLvl.Name = "LabelLvl";
             this.LabelLvl.Size = new System.Drawing.Size(23, 25);
             this.LabelLvl.TabIndex = 52;
@@ -219,7 +234,7 @@
             // 
             this.labelnameLevel.AutoSize = true;
             this.labelnameLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelnameLevel.Location = new System.Drawing.Point(272, 314);
+            this.labelnameLevel.Location = new System.Drawing.Point(273, 314);
             this.labelnameLevel.Name = "labelnameLevel";
             this.labelnameLevel.Size = new System.Drawing.Size(59, 25);
             this.labelnameLevel.TabIndex = 51;
@@ -229,10 +244,10 @@
             // Save
             // 
             this.Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Save.Location = new System.Drawing.Point(279, 497);
+            this.Save.Location = new System.Drawing.Point(449, 496);
             this.Save.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(116, 46);
+            this.Save.Size = new System.Drawing.Size(142, 46);
             this.Save.TabIndex = 50;
             this.Save.Text = "Save";
             this.Save.UseVisualStyleBackColor = true;
@@ -613,18 +628,17 @@
             this.TextBoxNickname.Size = new System.Drawing.Size(193, 22);
             this.TextBoxNickname.TabIndex = 3;
             // 
-            // Inventory
+            // ButtonTeams
             // 
-            this.Inventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Inventory.Location = new System.Drawing.Point(416, 496);
-            this.Inventory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Inventory.Name = "Inventory";
-            this.Inventory.Size = new System.Drawing.Size(142, 46);
-            this.Inventory.TabIndex = 59;
-            this.Inventory.Text = "Inventory";
-            this.Inventory.UseVisualStyleBackColor = true;
-            this.Inventory.Visible = false;
-            this.Inventory.Click += new System.EventHandler(this.Inventory_Click);
+            this.ButtonTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButtonTeams.Location = new System.Drawing.Point(278, 496);
+            this.ButtonTeams.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonTeams.Name = "ButtonTeams";
+            this.ButtonTeams.Size = new System.Drawing.Size(142, 46);
+            this.ButtonTeams.TabIndex = 60;
+            this.ButtonTeams.Text = "Teams";
+            this.ButtonTeams.UseVisualStyleBackColor = true;
+            this.ButtonTeams.Click += new System.EventHandler(this.ButtonTeams_Click);
             // 
             // Form1
             // 
@@ -690,5 +704,6 @@
         private System.Windows.Forms.Button ButtonExpPlus500;
         private System.Windows.Forms.ProgressBar progressExp;
         private System.Windows.Forms.Button Inventory;
+        private System.Windows.Forms.Button ButtonTeams;
     }
 }

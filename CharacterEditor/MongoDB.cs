@@ -1,6 +1,7 @@
 ﻿using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,6 @@ namespace CharacterEditor
             var database = client.GetDatabase("CharList");
             var collection = database.GetCollection<Unit>("Units");
             collection.InsertOne(unit);
-
         }
 
         public static List<Unit> FindAll()
@@ -27,7 +27,7 @@ namespace CharacterEditor
             var list = collection.Find(x => true).ToList();
             return list;
         }
-
+        
         public static Unit Find(string name)
         {
             var client = new MongoClient();
